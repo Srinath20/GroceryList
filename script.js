@@ -63,7 +63,7 @@ function buttonClick(e){
     res.innerHTML='<h4>Items Added to Cart</h4>';
     console.log('Event :'+ e.type);
 }
-let play = document.getElementById('box');
+let play = document.getElementById('box1');
 play.style.alignSelf='center';
 play.addEventListener('mousemove', Play);
 function Play(e){
@@ -71,3 +71,22 @@ function Play(e){
     play.style.backgroundColor = "rgb("+e.offsetX+","+e.offsetY+",40)";
     console.log()
 }
+
+//Final Project
+let form = document.getElementById('addForm');
+let ItemLists = document.getElementById('items');
+//Add eventListner to form
+form.addEventListener('submit',addItem);
+
+function addItem(e){
+    e.preventDefault();
+    //Get value of the input
+    let Values = document.getElementById('item').value;
+    //Create element
+    let li = document.createElement('li');
+    li.classList('list-group-item');
+    //Adding value to the created element
+    li.appendChild(document.createTextNode(Values));
+    ItemLists.appendChild(li);
+}
+
