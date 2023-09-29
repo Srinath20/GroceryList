@@ -56,3 +56,18 @@ newdiv.style.fontWeight = 500;
 newdiv.style.color='black';
 let head = document.querySelector('header .container');
 head.insertAdjacentElement('beforeend',newdiv);
+//Adding Event Listener
+let button = document.getElementById('button').addEventListener('click',buttonClick);
+function buttonClick(e){
+    let res = document.getElementById('result');
+    res.innerHTML='<h4>Items Added to Cart</h4>';
+    console.log('Event :'+ e.type);
+}
+let play = document.getElementById('box');
+play.style.alignSelf='center';
+play.addEventListener('mousemove', Play);
+function Play(e){
+    console.log(e.type);
+    play.style.backgroundColor = "rgb("+e.offsetX+","+e.offsetY+",40)";
+    console.log()
+}
