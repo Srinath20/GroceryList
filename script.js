@@ -84,9 +84,42 @@ function addItem(e){
     let Values = document.getElementById('item').value;
     //Create element
     let li = document.createElement('li');
-    li.classList('list-group-item');
+    li.className='list-group-item';
+    console.log(li);
     //Adding value to the created element
     li.appendChild(document.createTextNode(Values));
     ItemLists.appendChild(li);
+    //Adding delete button
+    let delbtn = document.createElement('button');
+    delbtn.className = 'btn btn-danger btn-sm float-right delete';
+    //Append Text Node
+    delbtn.appendChild(document.createTextNode('X'));
+    li.appendChild(delbtn);
+ //Removing the added item from list
+    ItemLists.addEventListener('click',removeItem);
 }
+
+ function removeItem(e){
+    e.preventDefault();
+    if(e.target.classList.contains('delete')){
+        if(confirm('Are you sure!!?')){
+            var li = e.target.parentElement;
+            ItemLists.removeChild(li);
+        }
+    }
+ }
+ //Filter
+ let filter = document.getElementById('filter');
+ filter.addEventListener('keyup',filterItems);
+ function filterItems(e){
+    //Convert Text to LowerCase
+    let text = e.target.value.toLowerCase();
+    console.log(text);
+    //Get all li's
+    let lists = document.getElementsByTagName('li');
+    //Convert to an Array
+    
+ }
+
+
 
