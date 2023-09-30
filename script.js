@@ -118,7 +118,15 @@ function addItem(e){
     //Get all li's
     let lists = document.getElementsByTagName('li');
     //Convert to an Array
-    
+    Array.from(ItemLists).forEach(function(item1){
+        let Name = item1.firstElementChild.textContent;
+        if(Name.toLowerCase().indexOf(text) != -1){
+            item1.style.display = 'block';
+        }
+        else{
+            item1.style.display = 'none';
+        }
+    })
  }
 
 
